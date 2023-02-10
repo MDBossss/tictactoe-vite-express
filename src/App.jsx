@@ -4,7 +4,7 @@ import JoinRoom from './components/JoinRoom';
 import io from "socket.io-client";
 import { useState } from 'react';
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("http://tictactoe-vite-express-api-production.up.railway.app");
 
 
 function App() {
