@@ -9,12 +9,13 @@ const Game = ({socket,roomCode}) => {
   const [board,setBoard] = useState(Array(9).fill(null));
 
   useEffect(() => {
-    console.log("currentPlayer prije socketa: " + currentPlayer);
     socket.on("recieve_move", (data) => {
+      //checks if the board is reset so the text displays right and X/O are assigned right
       if(filledElementsOfArray(data.nextSquares) == 0){
         setCurrentPlayer(null);
       }
 
+      //is someone made the 1st move, set the other player to O
       if(filledElementsOfArray(data.nextSquares) == 1){
         const cp = "O";
         setCurrentPlayer(cp);
