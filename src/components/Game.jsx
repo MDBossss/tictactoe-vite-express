@@ -11,6 +11,10 @@ const Game = ({socket,roomCode}) => {
   useEffect(() => {
     console.log("currentPlayer prije socketa: " + currentPlayer);
     socket.on("recieve_move", (data) => {
+      if(filledElementsOfArray(data.nextSquares) == 0){
+        setCurrentPlayer(null);
+      }
+
       if(filledElementsOfArray(data.nextSquares) == 1){
         const cp = "O";
         setCurrentPlayer(cp);
@@ -37,6 +41,7 @@ const Game = ({socket,roomCode}) => {
   const handleRestart = () => {
     let nextSquares = Array(9).fill(null);
     setBoard(nextSquares);
+    setCurrentPlayer(null);
     socket.emit("send_move",{ nextSquares, roomCode })
   }
 
