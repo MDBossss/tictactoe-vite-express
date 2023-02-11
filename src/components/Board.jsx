@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { calculateWinner } from '../utils/gameUtils';
+import { calculateWinner, filledElementsOfArray } from '../utils/gameUtils';
 import Square from './Square'
 
 const Board = ({currentPlayer,squares,onPlay,handleCurrentPlayer,handleRestart}) => {
@@ -8,7 +8,7 @@ const Board = ({currentPlayer,squares,onPlay,handleCurrentPlayer,handleRestart})
     const winner = calculateWinner(squares);
 
     useEffect(() => {
-        if(winner){
+        if(winner || filledElementsOfArray(squares) == 9){
             setVisibleRestart(true);
         }
         else{
