@@ -4,7 +4,7 @@ import JoinRoom from './components/JoinRoom';
 import io from "socket.io-client";
 import { useState } from 'react';
 
-const socket = io.connect("https://tictactoe-vite-express-api.vercel.app/");
+const socket = io.connect("https://tictactoe-vite-express-api.vercel.app:5000");
 
 
 function App() {
