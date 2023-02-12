@@ -1,0 +1,10 @@
+//========GLOBALS=========
+
+@import "./settings/globals";
+
+//========COMPONENTS========
+
+@import "../components/Board/board.scss";
+@import "../components/Game/game.scss";
+@import "../components/JoinRoom/join-room.scss";
+@import "../components/Square/square.scss";

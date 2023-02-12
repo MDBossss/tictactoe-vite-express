@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
-import { calculateWinner, filledElementsOfArray } from '../utils/gameUtils';
-import Square from './Square'
+import { calculateWinner, filledElementsOfArray } from '../../utils/gameUtils';
+import Square from '../Square/Square'
 
 const Board = ({currentPlayer,squares,onPlay,handleCurrentPlayer,handleRestart}) => {
 

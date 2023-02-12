@@ -1,6 +1,5 @@
-import './App.css'
-import Game from './components/Game'
-import JoinRoom from './components/JoinRoom';
+import Game from './components/Game/Game'
+import JoinRoom from './components/JoinRoom/JoinRoom';
 import io from "socket.io-client";
 import { useState } from 'react';
 

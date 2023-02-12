@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import Board from './Board'
+import Board from '../Board/Board'
 import { useState } from 'react';
-import { filledElementsOfArray } from '../utils/gameUtils';
+import { filledElementsOfArray } from '../../utils/gameUtils';
 
 const Game = ({socket,roomCode}) => {
 
