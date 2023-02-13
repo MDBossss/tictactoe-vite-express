@@ -3,7 +3,7 @@ import Board from '../Board/Board'
 import { useState } from 'react';
 import { filledElementsOfArray } from '../../utils/gameUtils';
 
-const Game = ({socket,roomCode}) => {
+const Game = ({socket,roomCode,handleLeave}) => {
 
   const [currentPlayer,setCurrentPlayer] = useState(null);
   const [board,setBoard] = useState(Array(9).fill(null));
@@ -47,9 +47,13 @@ const Game = ({socket,roomCode}) => {
   }
 
   return (
-    <div className="game">
-      <Board currentPlayer={currentPlayer} squares={board} onPlay={handlePlay} handleCurrentPlayer={handleCurrentPlayer} handleRestart={handleRestart}/>
-    </div>
+    <>
+      <button className='leave-button' onClick={handleLeave}>Leave game</button>
+      <div className="game">
+        <Board currentPlayer={currentPlayer} squares={board} onPlay={handlePlay} handleCurrentPlayer={handleCurrentPlayer} handleRestart={handleRestart}/>
+      </div>
+    </>
+
   )
 }
 

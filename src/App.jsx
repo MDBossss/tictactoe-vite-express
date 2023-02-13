@@ -5,7 +5,6 @@ import io from "socket.io-client";
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-//const socket = io.connect("tictactoe-vite-express-api-production.up.railway.app");
 const socket = io.connect(import.meta.env.VITE_SERVER_URL || "tictactoe-vite-express-api-production.up.railway.app");
 
 
@@ -28,21 +27,26 @@ function App() {
     }
   }
 
+  const handleLeave = () => {
+    socket.disconnect();
+    setRoomCode(null);
+    setRoomFull(false);
+  }
+
   const componentRender = () => {
     if(!roomCode && !roomFull){
       return <JoinRoom handleJoin={joinRoom}/>;
     }
     else if(roomCode && !roomFull){
-      return <WaitingRoom roomCode={roomCode}/>;
+      return <WaitingRoom roomCode={roomCode} handleLeave={handleLeave}/>;
     }
     else if(roomCode && roomFull){
-      return <Game socket={socket} roomCode={roomCode}/>;
+      return <Game socket={socket} roomCode={roomCode} handleLeave={handleLeave}/>;
     }
   }
 
   return (
     <div className="App">
-      
       {componentRender()}
     </div>
   )

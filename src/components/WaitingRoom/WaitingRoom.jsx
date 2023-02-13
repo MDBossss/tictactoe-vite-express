@@ -1,10 +1,12 @@
 import React from 'react'
 
-const WaitingRoom = ({roomCode}) => {
+const WaitingRoom = ({roomCode,handleLeave}) => {
+
   return (
     <div className="waiting-room">
         <h2>Waiting for opponent...</h2>
         <p>code: {roomCode}</p>
+        <button onClick={handleLeave}>Leave game</button>
     </div>
   )
 }
