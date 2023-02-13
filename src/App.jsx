@@ -12,11 +12,21 @@ function App() {
 
   const [roomCode,setRoomCode] = useState(null);
   const [roomFull,setRoomFull] = useState(false);
+  const [opponentLeft,setOpponentLeft] = useState(false);
 
   useEffect(() => {
     socket.on("start_game", () => {
       setRoomFull(true);
     })
+
+    socket.on("opponent_left", (roomCode) => {
+      handleLeave(roomCode);
+      setOpponentLeft(true);
+      setTimeout(() => {
+        setOpponentLeft(false);
+      }, 3000);
+    })
+
   },[socket])
 
 
@@ -27,7 +37,7 @@ function App() {
     }
   }
 
-  const handleLeave = () => {
+  const handleLeave = (roomCode) => {
     socket.emit("leave_room",roomCode);
     setRoomCode(null);
     setRoomFull(false);
@@ -35,7 +45,7 @@ function App() {
 
   const componentRender = () => {
     if(!roomCode && !roomFull){
-      return <JoinRoom handleJoin={joinRoom}/>;
+      return <JoinRoom handleJoin={joinRoom} opponentLeft={opponentLeft}/>;
     }
     else if(roomCode && !roomFull){
       return <WaitingRoom roomCode={roomCode} handleLeave={handleLeave}/>;

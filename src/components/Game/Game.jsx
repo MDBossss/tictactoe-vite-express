@@ -48,7 +48,7 @@ const Game = ({socket,roomCode,handleLeave}) => {
 
   return (
     <>
-      <button className='leave-button' onClick={handleLeave}>Leave game</button>
+      <button className='leave-button' onClick={() => handleLeave(roomCode)}>Leave game</button>
       <div className="game">
         <Board currentPlayer={currentPlayer} squares={board} onPlay={handlePlay} handleCurrentPlayer={handleCurrentPlayer} handleRestart={handleRestart}/>
       </div>

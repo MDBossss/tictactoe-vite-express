@@ -6,7 +6,7 @@ const WaitingRoom = ({roomCode,handleLeave}) => {
     <div className="waiting-room">
         <h2>Waiting for opponent...</h2>
         <p>code: {roomCode}</p>
-        <button onClick={handleLeave}>Leave game</button>
+        <button onClick={() => handleLeave(roomCode)}>Leave game</button>
     </div>
   )
 }
