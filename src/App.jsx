@@ -28,7 +28,7 @@ function App() {
   }
 
   const handleLeave = () => {
-    socket.disconnect();
+    socket.emit("leave_room",roomCode);
     setRoomCode(null);
     setRoomFull(false);
   }
