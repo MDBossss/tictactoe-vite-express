@@ -40,8 +40,11 @@ const Board = ({currentPlayer,squares,onPlay,handleCurrentPlayer,handleRestart})
         if(currentPlayer == null){
             status = "Make the first move!";
         }
+        else if(filledElementsOfArray(squares) == 9){
+            status = "Game tied!";
+        }
         else{
-            status = "Next player: " + currentPlayer;
+            status = "You are: " + currentPlayer;
         }
     }
 

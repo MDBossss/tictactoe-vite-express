@@ -1,0 +1,40 @@
+.room{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+
+    .left{
+        font-size: 14px;
+    }
+
+    .right{
+        display: flex;
+        align-items: center;
+        gap:3px;
+        font-size: 12px;
+
+        button{
+            min-width:fit-content;
+            min-height:fit-content;
+            font-size: 10px;
+            padding:2px 5px;
+        }
+
+        .joinable{
+            background-color: green;
+
+            &:hover{
+                border-color: rgb(3, 70, 3);
+            }
+        }
+
+        .not-joinable{
+            background-color: red;
+
+            &:hover{
+                border-color: rgb(80, 4, 4);
+            }
+        }
+    }
+}

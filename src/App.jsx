@@ -31,21 +31,21 @@ function App() {
 
 
   const joinRoom = (inputText) => {
-    if(!roomCode){
+    if(!roomCode && inputText !== undefined){
       setRoomCode(inputText)
       socket.emit("join_room",inputText);
     }
   }
 
   const handleLeave = (roomCode) => {
-    socket.emit("leave_room",roomCode);
+    socket.emit("leave_room",roomCode, { priority: "high" });
     setRoomCode(null);
     setRoomFull(false);
   }
 
   const componentRender = () => {
     if(!roomCode && !roomFull){
-      return <JoinRoom handleJoin={joinRoom} opponentLeft={opponentLeft}/>;
+      return <JoinRoom socket={socket} handleJoin={joinRoom} opponentLeft={opponentLeft}/>;
     }
     else if(roomCode && !roomFull){
       return <WaitingRoom roomCode={roomCode} handleLeave={handleLeave}/>;
