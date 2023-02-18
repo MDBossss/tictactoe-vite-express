@@ -3,6 +3,16 @@
   left:0;
   top:0;
   margin:10px;
+
+  border:none;
+  transition:box-shadow 300ms ease-in-out;
+
+  &:hover{
+      box-shadow: 3px 3px 20px #646cff,
+      -2px 1px 30px #646cff;
+      border:none;
+  }
+
 }
 
 .game{
