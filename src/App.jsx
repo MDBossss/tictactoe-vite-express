@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const socket = io.connect(import.meta.env.VITE_SERVER_URL || "tictactoe-vite-express-api-production.up.railway.app");
+const socket = io.connect(import.meta.env.VITE_SERVER_URL);
 
 
 function App() {
@@ -62,4 +62,4 @@ function App() {
   )
 }
 
-export default App // availabe to access outside the file
+export default App 
